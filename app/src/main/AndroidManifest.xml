@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name=".activity.register.RegisterActivity"
             android:launchMode="singleTask"/>
         <activity
             android:name=".activity.main.MainActivity"

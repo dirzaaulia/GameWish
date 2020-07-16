@@ -139,7 +139,6 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
                 } else if (checkBoxPreOrder.isChecked() && tanggal_rilis.isEmpty()){
                     editTextTanggalRilis.setError("Tanggal rilis tidak boleh kosong jika game ini Pre-Order");
                 } else {
-                    //Toast.makeText(this, kode + " " + nama + " " + harga + " " + toko + " " + pre_order + " " + tanggal_rilis, Toast.LENGTH_SHORT).show();
                     editorPresenter.tambahWishlist(kode, nama, harga, toko, pre_order, tanggal_rilis);
                 }
 
@@ -153,10 +152,8 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
                     editTextNama.setError("Hapus tanda kutip dari nama game");
                 } else if (harga.isEmpty()) {
                     editTextHarga.setError("Harga game tidak boleh kosong");
-                } else if (checkBoxPreOrder.isChecked()) {
-                    if (tanggal_rilis.isEmpty()) {
-                        editTextTanggalRilis.setError("Tanggal rilis tidak boleh kosong jika game ini Pre-Order");
-                    }
+                } else if (checkBoxPreOrder.isChecked() && tanggal_rilis.isEmpty()){
+                    editTextTanggalRilis.setError("Tanggal rilis tidak boleh kosong jika game ini Pre-Order");
                 } else {
                     editorPresenter.ubahWishlist(id, kode, nama, harga, toko, pre_order, tanggal_rilis);
                 }
