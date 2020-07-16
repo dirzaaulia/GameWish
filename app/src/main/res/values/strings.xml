@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GameWish</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="nama_game">Nama Game</string>
+    <string name="harga">Harga</string>
+    <string name="toko">DRM / Toko</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
+    <string name="nomor_wishlist">1</string>
+    <string name="search">Search</string>
+    <string name="teks_login">Silahkan masukkan kode unik kamu untuk masuk ke aplikasi</string>
+    <string name="teks_register">Silahkan masukkan kode unik kamu</string>
+    <string name="teks_button_login">Masuk</string>
+    <string name="teks_button_register">Daftar</string>
+    <string name="kode">Kode</string>
+    <string name="helper_toko">Jika DRM / Toko tidak ada pada daftar. Silahkan ketik sesuai dengan DRM / Toko tempat kamu akan membeli game</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="register">Daftar</string>
+    <string name="link_register">Belum punya kode unik?</string>
+    <string name="pre_order">Game ini Pre-Order?</string>
+    <string name="tanggal_rilis">Tanggal Rilis</string>
+    <string name="pre_order_status">Pre-Order</string>
+</resources>
