@@ -45,12 +45,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 
         if (wishlist.getPre_order().equals("Ya")){
-            String pre_order = "Pre-Order";
+            String pre_order = "Pre-Order : Rilis " + wishlist.getTanggal_rilis() + " " + position;
             holder.textViewPreOrder.setText(pre_order);
-            holder.textViewTanggalRilis.setText(wishlist.getTanggal_rilis());
         } else {
             holder.textViewPreOrder.setVisibility(View.GONE);
-            holder.textViewTanggalRilis.setVisibility(View.GONE);
         }
 
         holder.textViewID.setText(String.valueOf(id));
@@ -67,7 +65,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
 
     static class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView textViewID, textViewNama, textViewHarga, textViewToko, textViewPreOrder, textViewTanggalRilis;
+        TextView textViewID, textViewNama, textViewHarga, textViewToko, textViewPreOrder;
         MaterialCardView materialCardView;
         ItemClickListener itemClickListener;
 
@@ -79,7 +77,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
             textViewHarga = itemView.findViewById(R.id.harga_game);
             textViewToko = itemView.findViewById(R.id.toko);
             textViewPreOrder = itemView.findViewById(R.id.pre_order);
-            textViewTanggalRilis = itemView.findViewById(R.id.tanggal_rilis);
             materialCardView = itemView.findViewById(R.id.card_wishlist);
 
             this.itemClickListener = itemClickListener;

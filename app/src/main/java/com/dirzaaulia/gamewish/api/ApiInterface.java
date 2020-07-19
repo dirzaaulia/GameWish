@@ -12,6 +12,17 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
+    @GET("gamewish/cekkode.php")
+    Call<List<Wishlist>> cekKode(
+            @Query("kode") String keyword
+    );
+
+    @FormUrlEncoded
+    @POST("gamewish/registerkode.php")
+    Call<Wishlist> registerKode(
+            @Field("kode") String kode
+    );
+
     @FormUrlEncoded
     @POST("gamewish/tambahwishlist.php")
     Call<Wishlist> tambahWishlist(
@@ -29,10 +40,26 @@ public interface ApiInterface {
             @Query("kode") String kode
     );
 
-    @GET("gamewish/cekkode.php")
-    Call<List<Wishlist>> cekKode(
-            @Query("kode") String keyword
+    @GET("gamewish/ambildatawishlisturutnama.php")
+    Call<List<Wishlist>> getWishlistUrutNama(
+            @Query("kode") String kode
     );
+
+    @GET("gamewish/ambildatawishlisturutharga.php")
+    Call<List<Wishlist>> getWishlistUrutHarga(
+            @Query("kode") String kode
+    );
+
+    @GET("gamewish/ambildatawishlisturuttoko.php")
+    Call<List<Wishlist>> getWishlistUrutToko(
+            @Query("kode") String kode
+    );
+
+    @GET("gamewish/ambildatawishlisturutpreorder.php")
+    Call<List<Wishlist>> getWishlistUrutPreOrder(
+            @Query("kode") String kode
+    );
+
 
     @FormUrlEncoded
     @POST("gamewish/ubahwishlist.php")

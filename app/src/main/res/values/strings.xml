@@ -22,4 +22,7 @@
     <string name="pre_order">Game ini Pre-Order?</string>
     <string name="tanggal_rilis">Tanggal Rilis</string>
     <string name="pre_order_status">Pre-Order</string>
+    <string name="teks_welcome">Buat Wishlist Pertama Kamu!</string>
+    <string name="buat_wishlist">Buat Wishlist</string>
+    <string name="urut_berdasarkan">Urut Berdasarkan</string>
 </resources>

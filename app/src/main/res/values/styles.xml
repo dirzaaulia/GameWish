@@ -27,6 +27,11 @@
         <item name="boxStrokeColor">@color/edit_text_box_border</item>
     </style>
 
+    <style name="MyAutoCompleteTextView" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/edit_text_box_border</item>
+        <item name="endIconTint">@color/colorWhite</item>
+    </style>
+
     <style name="Theme.MyAppNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

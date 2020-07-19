@@ -1,11 +1,7 @@
 package com.dirzaaulia.gamewish.activity.register;
 
-import com.dirzaaulia.gamewish.model.Wishlist;
-
-import java.util.List;
-
 public interface RegisterView {
-    void onGetResult(List<Wishlist> wishlistList);
+    void onRequestSuccess(String message);
 
-    void onErrorLoad(String message);
+    void onRequestError(String message);
 }

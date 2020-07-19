@@ -53,14 +53,23 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @Override
     public void onGetResult(List<Wishlist> wishlistList) {
         if (wishlistList.isEmpty()){
-            Snackbar.make(getWindow().getDecorView(), "Kode kamu tidak ditemukan. Silahkan daftarkan kode kamu", Snackbar.LENGTH_LONG).setAction(R.string.register, v -> startActivity(new Intent(getBaseContext(), RegisterActivity.class)))
-                    .setBackgroundTint(getColor(R.color.colorWhite)).setTextColor(getColor(R.color.colorBackground)).setActionTextColor(getColor(R.color.colorWhite)).show();
+            Snackbar.make(getWindow().getDecorView(), "Kode kamu tidak ditemukan. Silahkan daftarkan kode kamu", Snackbar.LENGTH_LONG)
+                    .setAction(R.string.register, v -> startActivity(new Intent(getBaseContext(), RegisterActivity.class)))
+                    .setBackgroundTint(getColor(R.color.colorWhite))
+                    .setTextColor(getColor(R.color.colorBackground))
+                    .setActionTextColor(getColor(R.color.colorWhite))
+                    .show();
         } else {
-            Snackbar.make(getWindow().getDecorView(), "Berhasil masuk, Ketuk tombol untuk melanjutkan", Snackbar.LENGTH_LONG).setAction(R.string.lanjutkan, v -> {
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                intent.putExtra("kode", kode);
-                startActivity(intent);
-            }).setBackgroundTint(getColor(R.color.colorWhite)).setTextColor(getColor(R.color.colorBackground)).setActionTextColor(getColor(R.color.colorWhite)).show();
+            Snackbar.make(getWindow().getDecorView(), "Berhasil masuk, Ketuk tombol untuk melanjutkan", Snackbar.LENGTH_LONG)
+                    .setAction(R.string.lanjutkan, v -> {
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        intent.putExtra("kode", kode);
+                        startActivity(intent);
+                    })
+                    .setBackgroundTint(getColor(R.color.colorWhite))
+                    .setTextColor(getColor(R.color.colorBackground))
+                    .setActionTextColor(getColor(R.color.colorWhite))
+                    .show();
         }
     }
 

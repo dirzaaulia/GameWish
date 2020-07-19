@@ -39,13 +39,32 @@
         android:orientation="vertical"
         android:layout_marginStart="25dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nama_game"
-            android:text="@string/nama_game"
-            android:textSize="17sp"
-            android:textColor="@color/colorBlack"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nama_game"
+                android:text="@string/nama_game"
+                android:textSize="17sp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:layout_weight="2"
+                android:gravity="end"
+                android:id="@+id/toko"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/toko"
+                />
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -54,12 +73,6 @@
             android:textSize="12sp"
             android:text="@string/harga"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toko"
-            android:textSize="12sp"
-            android:text="@string/toko"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -67,13 +80,6 @@
             android:id="@+id/pre_order"
             android:textSize="12sp"
             android:text="@string/pre_order_status"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tanggal_rilis"
-            android:textSize="12sp"
-            android:text="@string/tanggal_rilis"/>
 
     </LinearLayout>
 

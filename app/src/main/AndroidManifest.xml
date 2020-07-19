@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.login.LoginActivity"
+        <activity
+            android:name=".activity.login.LoginActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +34,13 @@
         </activity>
         <activity
             android:name=".activity.register.RegisterActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.welcome.WelcomeActivity"
             android:launchMode="singleTask"/>
         <activity
             android:name=".activity.main.MainActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.editor.EditorActivity"
             android:launchMode="singleTask" />

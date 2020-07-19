@@ -9,10 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.dirzaaulia.gamewish.R;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,7 +27,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
 
     TextInputEditText editTextNama, editTextHarga, editTextTanggalRilis;
     AutoCompleteTextView autoCompleteTextViewToko;
-    CheckBox checkBoxPreOrder;
+    Chip chipPreOrder;
 
     Menu actionMenu;
     ProgressDialog progressDialog;
@@ -63,7 +63,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
 
         ambilDaftarToko();
 
-        checkBoxPreOrder.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        chipPreOrder.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked){
                 editTextTanggalRilis.setVisibility(View.VISIBLE);
                 editTextTanggalRilis.setText(tanggal_rilis);
@@ -111,7 +111,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
         pre_order = "Tidak";
         tanggal_rilis = null;
 
-        if (checkBoxPreOrder.isChecked()){
+        if (chipPreOrder.isChecked()){
             pre_order = "Ya";
             tanggal_rilis = Objects.requireNonNull(editTextTanggalRilis.getText()).toString().trim();
         }
@@ -136,7 +136,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
                 }
                 else if (harga.isEmpty()) {
                     editTextHarga.setError("Harga game tidak boleh kosong");
-                } else if (checkBoxPreOrder.isChecked() && tanggal_rilis.isEmpty()){
+                } else if (chipPreOrder.isChecked() && tanggal_rilis.isEmpty()){
                     editTextTanggalRilis.setError("Tanggal rilis tidak boleh kosong jika game ini Pre-Order");
                 } else {
                     editorPresenter.tambahWishlist(kode, nama, harga, toko, pre_order, tanggal_rilis);
@@ -152,7 +152,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
                     editTextNama.setError("Hapus tanda kutip dari nama game");
                 } else if (harga.isEmpty()) {
                     editTextHarga.setError("Harga game tidak boleh kosong");
-                } else if (checkBoxPreOrder.isChecked() && tanggal_rilis.isEmpty()){
+                } else if (chipPreOrder.isChecked() && tanggal_rilis.isEmpty()){
                     editTextTanggalRilis.setError("Tanggal rilis tidak boleh kosong jika game ini Pre-Order");
                 } else {
                     editorPresenter.ubahWishlist(id, kode, nama, harga, toko, pre_order, tanggal_rilis);
@@ -228,7 +228,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
             autoCompleteTextViewToko.setText(toko);
 
             if (pre_order.equals("Ya")){
-                checkBoxPreOrder.setChecked(true);
+                chipPreOrder.setChecked(true);
                 editTextTanggalRilis.setVisibility(View.VISIBLE);
                 editTextTanggalRilis.setText(tanggal_rilis);
             }
@@ -243,7 +243,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
         editTextNama.setEnabled(true);
         editTextHarga.setEnabled(true);
         autoCompleteTextViewToko.setEnabled(true);
-        checkBoxPreOrder.setEnabled(true);
+        chipPreOrder.setEnabled(true);
         editTextTanggalRilis.setEnabled(true);
     }
 
@@ -251,7 +251,7 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
         editTextNama.setEnabled(false);
         editTextHarga.setEnabled(false);
         autoCompleteTextViewToko.setEnabled(false);
-        checkBoxPreOrder.setEnabled(false);
+        chipPreOrder.setEnabled(false);
         editTextTanggalRilis.setEnabled(false);
     }
 
@@ -261,6 +261,6 @@ public class EditorActivity extends AppCompatActivity implements EditorView{
         editTextHarga = findViewById(R.id.harga_game);
         editTextTanggalRilis = findViewById(R.id.tanggal_rilis);
         autoCompleteTextViewToko = findViewById(R.id.toko_game);
-        checkBoxPreOrder = findViewById(R.id.checkbox_pre_order);
+        chipPreOrder = findViewById(R.id.chip_pre_order);
     }
 }

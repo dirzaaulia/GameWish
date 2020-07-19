@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.dirzaaulia.gamewish.R;
 import com.dirzaaulia.gamewish.activity.editor.EditorActivity;
 import com.dirzaaulia.gamewish.model.Wishlist;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;
@@ -33,11 +35,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     List<Wishlist> wishlist;
 
-    TextView textView;
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
     ExtendedFloatingActionButton fab;
     Toolbar toolbar;
+    ChipGroup chipGroup;
+    Chip chipUrutNama, chipUrutHarga, chipUrutToko, chipUrutPreOrder;
 
     String kode;
 
@@ -67,6 +70,51 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         //Saat tampilan direfresh
         swipeRefreshLayout.setOnRefreshListener(() -> mainPresenter.getWishlist(null, kode));
+
+        chipUrutNama.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                mainPresenter.getWishlistUrutNama(kode);
+                chipUrutHarga.setChecked(false);
+                chipUrutToko.setChecked(false);
+                chipUrutPreOrder.setChecked(false);
+            } else {
+                mainPresenter.getWishlist(null, kode);
+            }
+        });
+
+        chipUrutHarga.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                mainPresenter.getWishlistUrutHarga(kode);
+                chipUrutNama.setChecked(false);
+                chipUrutToko.setChecked(false);
+                chipUrutPreOrder.setChecked(false);
+            } else {
+                mainPresenter.getWishlist(null, kode);
+            }
+        });
+
+        chipUrutToko.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                mainPresenter.getWishlistUrutToko(kode);
+                chipUrutNama.setChecked(false);
+                chipUrutHarga.setChecked(false);
+                chipUrutPreOrder.setChecked(false);
+            } else {
+                mainPresenter.getWishlist(null, kode);
+            }
+        });
+
+        chipUrutPreOrder.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                mainPresenter.getWishlistUrutPreOrder(kode);
+                chipUrutNama.setChecked(false);
+                chipUrutHarga.setChecked(false);
+                chipUrutToko.setChecked(false);
+            } else {
+                mainPresenter.getWishlist(null, kode);
+            }
+        });
+
 
         //Saat card di ketuk
         itemClickListener = ((view, position) -> {
@@ -180,45 +228,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-
-    /*
-    private void daftarToko(String nama_game) {
-
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<Deal>> call = apiInterface.getDetailGame(nama_game);
-        call.enqueue(new Callback<List<Deal>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<Deal>> call, @NonNull Response<List<Deal>> response) {
-                List<Deal> dealList = response.body();
-
-                if (dealList != null && dealList.size() > 0) {
-                    String[] gameDetailListString = new String[dealList.size()];
-
-                    for (int i = 0; i < dealList.size(); i++) {
-                        gameDetailListString[i] = dealList.get(i).getExternal();
-
-                        textView.setText(gameDetailListString[i]);
-
-                        //ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), R.layout.dropdown_menu, namaObatListString);
-                        //autoCompleteNamaObat.setAdapter(adapter);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<List<Deal>> call, @NonNull Throwable t) {
-                Toast.makeText(getBaseContext(), "Terjadi kesalahan saat mengambil data resep", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-     */
-
     private void bindViews() {
 
-        textView = findViewById(R.id.text_view);
         toolbar = findViewById(R.id.toolbar_main);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_main);
         recyclerView = findViewById(R.id.recycler_view_main);
         fab = findViewById(R.id.fab_tambah_wishlist);
+
+        chipGroup = findViewById(R.id.chip_group);
+        chipUrutNama = findViewById(R.id.chip_urut_nama);
+        chipUrutHarga = findViewById(R.id.chip_urut_harga);
+        chipUrutToko = findViewById(R.id.chip_urut_toko);
+        chipUrutPreOrder = findViewById(R.id.chip_urut_pre_order);
     }
 }
