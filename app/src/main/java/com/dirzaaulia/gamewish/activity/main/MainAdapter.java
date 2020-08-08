@@ -45,7 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.RecyclerViewAd
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
 
         if (wishlist.getPre_order().equals("Ya")){
-            String pre_order = "Pre-Order : Rilis " + wishlist.getTanggal_rilis() + " " + position;
+            String pre_order = "Pre-Order : Rilis " + wishlist.getTanggal_rilis();
             holder.textViewPreOrder.setText(pre_order);
         } else {
             holder.textViewPreOrder.setVisibility(View.GONE);
